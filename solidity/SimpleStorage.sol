@@ -12,19 +12,19 @@ contract SimpleStorage {
     int32 y = -5;
 
     // methods/functions
-    // function store(uint256 _x) public {
-    //     x = _x;
-    // }
+    function store(uint256 _x) public {
+        x = _x;
+    }
 
-    // // view method
-    // function retrieve() public view returns(uint256) {
-    //     return x;
-    // }
+    // view method
+    function retrieve() public view returns(uint256) {
+        return x;
+    }
 
-    // // pure method => only for math computation
-    // function doMath(uint256 _x) public pure {
-    //     _x + _x;
-    // }
+    // pure method => only for math computation
+    function doMath(uint256 _x) public pure {
+        _x + _x;
+    }
 
     // struct
     struct People {
@@ -36,7 +36,11 @@ contract SimpleStorage {
 
     // arrays
     People[] public people;
+
+    // maps
+    mapping(string => int32) public nameToAge;
     function addPerson(string memory _name, int32 _age) public {
         people.push(People(_name, _age));
+        nameToAge[_name] = _age;
     }
 }
